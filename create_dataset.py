@@ -78,7 +78,7 @@ for season in range(2015, 2023):
             match_id += 1
 
 df = pd.DataFrame(matches)
-df.to_csv("/home/claude/ipl_matches.csv", index=False)
+df.to_csv("ipl_matches.csv", index=False)
 print(f"Dataset ready! Total matches: {len(df)}")
 print(df.head())
 print(f"\nSeasons: {df['season'].unique()}")

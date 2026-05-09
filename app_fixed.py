@@ -25,10 +25,8 @@ st.divider()
 # ============================================
 st.subheader("🏆 Season Wise Champions")
 
-season_winners = df.groupby("season")["winner"].agg(
-    lambda x: x.value_counts().index[0]
-).reset_index()
-season_winners.columns = ["season", "champion"]
+real_winners = {2015: "Mumbai Indians", 2016: "Sunrisers Hyderabad", 2017: "Mumbai Indians", 2018: "Chennai Super Kings", 2019: "Mumbai Indians", 2020: "Mumbai Indians", 2021: "Chennai Super Kings", 2022: "Gujarat Titans"}
+season_winners = pd.DataFrame(list(real_winners.items()), columns=["season", "champion"])
 
 team_colors = {
     "Mumbai Indians": "#004BA0",
@@ -99,5 +97,5 @@ st.pyplot(fig)
 plt.close()
 
 # Raw data
-if st.checkbox("Raw data बघायची आहे?"):
+if st.checkbox("Raw data"):
     st.dataframe(df)

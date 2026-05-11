@@ -20,39 +20,6 @@ col4.metric("Top Team", df["winner"].value_counts().index[0])
 
 st.divider()
 
-# ============================================
-# SEASON WISE WINNER TROPHY
-# ============================================
-st.subheader("🏆 Season Wise Champions")
-
-real_winners = {2015: "Mumbai Indians", 2016: "Sunrisers Hyderabad", 2017: "Mumbai Indians", 2018: "Chennai Super Kings", 2019: "Mumbai Indians", 2020: "Mumbai Indians", 2021: "Chennai Super Kings", 2022: "Gujarat Titans"}
-season_winners = pd.DataFrame(list(real_winners.items()), columns=["season", "champion"])
-
-team_colors = {
-    "Mumbai Indians": "#004BA0",
-    "Chennai Super Kings": "#FFFF00",
-    "Royal Challengers Bangalore": "#EC1C24",
-    "Kolkata Knight Riders": "#3A225D",
-    "Delhi Capitals": "#0078BC",
-    "Rajasthan Royals": "#EA1A85",
-    "Sunrisers Hyderabad": "#F7A721",
-    "Punjab Kings": "#ED1B24"
-}
-
-cols = st.columns(len(season_winners))
-for i, row in season_winners.iterrows():
-    color = team_colors.get(row["champion"], "#333333")
-    with cols[i]:
-        st.markdown(f"""
-        <div style="background-color:{color}; padding:12px; border-radius:10px; text-align:center; color:white;">
-            <div style="font-size:28px;">🏆</div>
-            <div style="font-size:13px; font-weight:bold;">{row['season']}</div>
-            <div style="font-size:11px; margin-top:4px;">{row['champion']}</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-st.divider()
-
 # Graph 1 - Team wins
 st.subheader("Most Wins by Team")
 fig, ax = plt.subplots(figsize=(10, 4))
@@ -97,5 +64,5 @@ st.pyplot(fig)
 plt.close()
 
 # Raw data
-if st.checkbox("Raw data"):
+if st.checkbox("Raw data बघायची आहे?"):
     st.dataframe(df)

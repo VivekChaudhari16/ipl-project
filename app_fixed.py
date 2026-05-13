@@ -312,7 +312,7 @@ with tab2:
 
     st.markdown('<div class="section-title">🔍 Player Stats Search</div>', unsafe_allow_html=True)
     all_batsmen = sorted(filtered_del["batter"].unique())
-    selected_batsman = st.selectbox("Batsman निवड", all_batsmen)
+    selected_batsman = st.selectbox("Select The Batsman", all_batsmen)
     if selected_batsman:
         p = filtered_del[filtered_del["batter"] == selected_batsman]
         c1, c2, c3, c4 = st.columns(4)
@@ -362,7 +362,7 @@ with tab3:
     with col2:
         st.markdown('<div class="section-title">🔍 Bowler Stats Search</div>', unsafe_allow_html=True)
         all_bowlers = sorted(filtered_del2["bowler"].unique())
-        selected_bowler = st.selectbox("Bowler निवड", all_bowlers)
+        selected_bowler = st.selectbox("Select The Bowler", all_bowlers)
         if selected_bowler:
             b = filtered_del2[filtered_del2["bowler"] == selected_bowler]
             c1, c2 = st.columns(2)

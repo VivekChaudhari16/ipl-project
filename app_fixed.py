@@ -230,7 +230,7 @@ with col4:
 
 st.divider()
 
-if st.checkbox("📋 Raw Data बघायची आहे?"):
+if st.checkbox("📋 Raw Data "):
     st.dataframe(df, use_container_width=True)
 
 st.markdown("""
